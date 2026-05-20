@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FeedbackIQ</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f4ff;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+.container {
+    width: 68%;
+    margin: 44px auto;
+    background: white;
+    padding: 36px;
+    border-radius: 16px;
+    box-shadow: 0 4px 28px rgba(0,0,0,0.09);
+}
+
+/* ── Header ── */
+.header { text-align: center; margin-bottom: 28px; }
+
+.header h1 {
+    color: #1e3a8a;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+}
+
+.badge-dot.amazon   { background: #f97316; }
+.badge-dot.flipkart { background: #2563eb; }
+.badge-dot.myntra   { background: #e91e8c; }
+.badge-dot.snapdeal { background: #e53935; }
+
+/* ── Search ── */
+.search-bar { display: flex; gap: 10px; }
+
+.search-bar input {
+    flex: 1;
+    padding: 13px 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-bar input:focus { border-color: #2563eb; }
+
+.search-bar button {
+    padding: 13px 26px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    transition: background 0.2s;
+}
+
+.search-bar button:hover { background: #1d4ed8; }
+
+.hint {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.error {
+    color: #dc2626;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+/* ── Featured Products ── */
+.featured-section {
+    margin-top: 24px;
+}
+
+.featured-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.featured-label::before,
+.featured-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.product-card {
+    background: #f8faff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.product-card:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+    box-shadow: 0 2px 10px rgba(37,99,235,0.10);
+}
+
+.product-card-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.35;
+}
+
+.product-card-platforms {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.platform-pill {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+}
+
+.platform-pill.amazon   { background: #fff4e6; color: #c2410c; border: 1px solid #fed7aa; }
+.platform-pill.flipkart { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+
+.product-card-icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.product-card-img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 4px;
+    display: none;
+    margin-bottom: 2px;
+}
+
+/* Platform source badge on result */
+.source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 11px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.source-badge.amazon   { background: #fff4e6; color: #c2410c; border: 1px solid #fed7aa; }
+.source-badge.flipkart { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.source-badge.myntra   { background: #fdf2f8; color: #9d174d; border: 1px solid #fbcfe8; }
+.source-badge.snapdeal { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+
+/* ── Product Header ── */
+.product-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 18px;
+    background: #f8faff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.product-header img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 6px;
+    flex-shrink: 0;
+}
+
+.product-meta h2 {
+    font-size: 1.05rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.rating-badge {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* ── Sentiment ── */
+.sentiment-grid {
+    display: flex;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.sentiment-box {
+    flex: 1;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.sentiment-box.positive { background: #dcfce7; color: #166534; }
+.sentiment-box.negative { background: #fee2e2; color: #991b1b; }
+.sentiment-box.neutral  { background: #f1f5f9; color: #475569; }
+
+.sentiment-box span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+/* ── Graphs ── */
+.graphs {
+    display: flex;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.graphs img {
+    flex: 1;
+    width: 48%;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: #f8faff;
+}
+
+/* ── Sentiment Keywords ── */
+.kw-section {
+    margin-top: 20px;
+    padding: 18px 20px;
+    background: #f8faff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.kw-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kw-section-title::before,
+.kw-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.kw-grid {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.kw-group {
+    flex: 1;
+    min-width: 160px;
+    padding: 14px 16px;
+    border-radius: 10px;
+}
+
+.kw-group.positive {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.kw-group.negative {
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+.kw-group.neutral {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+}
+
+.kw-group-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.kw-group.positive .kw-group-label { color: #15803d; }
+.kw-group.negative .kw-group-label { color: #b91c1c; }
+.kw-group.neutral  .kw-group-label { color: #475569; }
+
+.kw-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.kw-group.positive .kw-dot { background: #4ade80; }
+.kw-group.negative .kw-dot { background: #f87171; }
+.kw-group.neutral  .kw-dot { background: #94a3b8; }
+
+.kw-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.kw-tag {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.kw-group.positive .kw-tag { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+.kw-group.negative .kw-tag { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+.kw-group.neutral  .kw-tag { background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; }
+
+.kw-empty {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+@media (max-width: 640px) {
+    .kw-grid { flex-direction: column; }
+}
+
+/* ── Sales Impact ── */
+.sales-section { margin-top: 30px; }
+
+.sales-section h3 {
+    font-size: 1rem;
+    color: #1e3a8a;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sales-metrics {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.sales-card {
+    flex: 1;
+    min-width: 130px;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 1px solid #e2e8f0;
+}
+
+.sales-card.before  { background: #eff6ff; color: #1e40af; }
+.sales-card.after   { background: #fef2f2; color: #991b1b; }
+.sales-card.drop    { background: #fff7ed; color: #92400e; }
+.sales-card.verdict { background: #f0fdf4; color: #166534; }
+.sales-card.verdict.high     { background: #fff7ed; color: #92400e; }
+.sales-card.verdict.critical { background: #fef2f2; color: #991b1b; }
+
+.sales-card span {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.sales-chart img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: #f8faff;
+}
+
+/* ── Reviews ── */
+.reviews-section { margin-top: 30px; }
+
+.reviews-section h3 {
+    font-size: 1rem;
+    color: #1e3a8a;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.review-card {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #f8faff;
+    border: 1px solid #e2e8f0;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.review-number {
+    min-width: 28px;
+    height: 28px;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.review-content { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+
+.review-title-line {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #1e293b;
+}
+
+.review-name {
+    font-size: 0.78rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.review-text {
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: #334155;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>FeedbackIQ</h1>
+        <div class="badges">
+            <span class="badge"><span class="badge-dot amazon"></span>Amazon</span>
+            <span class="badge"><span class="badge-dot flipkart"></span>Flipkart</span>
+            <span class="badge"><span class="badge-dot myntra"></span>Myntra</span>
+            <span class="badge"><span class="badge-dot snapdeal"></span>Snapdeal</span>
+        </div>
+    </div>
+
+    <form method="POST" action="/analyze" id="searchForm">
+        <div class="search-bar">
+            <input type="text" name="product" id="productInput"
+                   placeholder="Paste Amazon or Flipkart product link..."
+                   value="{{ request.form.get('product', '') }}">
+            <button type="submit">Analyze</button>
+        </div>
+        <p class="hint">Paste a product URL from Amazon, Flipkart, Myntra, or Snapdeal</p>
+    </form>
+
+    <!-- Featured Products -->
+    {% if not result %}
+    <div class="featured-section">
+        <div class="featured-label">Try these popular products — available on Amazon &amp; Flipkart</div>
+        <div class="featured-grid">
+            <div class="product-card" onclick="searchProduct('boAt Rockerz 255 Pro Wireless Earphones')">
+                <img class="product-card-img" data-product="boAt Rockerz 255 Pro Wireless Earphones" alt="boAt Rockerz 255">
+                <div class="product-card-icon">🎧</div>
+                <div class="product-card-name">boAt Rockerz 255 Pro Wireless Earphones</div>
+                <div class="product-card-platforms">
+                    <span class="platform-pill amazon">Amazon</span>
+                    <span class="platform-pill flipkart">Flipkart</span>
+                </div>
+            </div>
+            <div class="product-card" onclick="searchProduct('JBL C100SI In-Ear Headphones')">
+                <img class="product-card-img" data-product="JBL C100SI In-Ear Headphones" alt="JBL C100SI">
+                <div class="product-card-icon">🎵</div>
+                <div class="product-card-name">JBL C100SI In-Ear Headphones</div>
+                <div class="product-card-platforms">
+                    <span class="platform-pill amazon">Amazon</span>
+                    <span class="platform-pill flipkart">Flipkart</span>
+                </div>
+            </div>
+            <div class="product-card" onclick="searchProduct('Noise ColorFit Pro 4 Smartwatch')">
+                <img class="product-card-img" data-product="Noise ColorFit Pro 4 Smartwatch" alt="Noise ColorFit Pro 4">
+                <div class="product-card-icon">⌚</div>
+                <div class="product-card-name">Noise ColorFit Pro 4 Smartwatch</div>
+                <div class="product-card-platforms">
+                    <span class="platform-pill amazon">Amazon</span>
+                    <span class="platform-pill flipkart">Flipkart</span>
+                </div>
+            </div>
+            <div class="product-card" onclick="searchProduct('Redmi Note 13 5G Smartphone')">
+                <img class="product-card-img" data-product="Redmi Note 13 5G Smartphone" alt="Redmi Note 13 5G">
+                <div class="product-card-icon">📱</div>
+                <div class="product-card-name">Redmi Note 13 5G Smartphone</div>
+                <div class="product-card-platforms">
+                    <span class="platform-pill amazon">Amazon</span>
+                    <span class="platform-pill flipkart">Flipkart</span>
+                </div>
+            </div>
+            <div class="product-card" onclick="searchProduct('Oneplus Nord Buds 2 TWS Earbuds')">
+                <img class="product-card-img" data-product="Oneplus Nord Buds 2 TWS Earbuds" alt="OnePlus Nord Buds 2">
+                <div class="product-card-icon">🎶</div>
+                <div class="product-card-name">OnePlus Nord Buds 2 TWS Earbuds</div>
+                <div class="product-card-platforms">
+                    <span class="platform-pill amazon">Amazon</span>
+                    <span class="platform-pill flipkart">Flipkart</span>
+                </div>
+            </div>
+            <div class="product-card" onclick="searchProduct('Philips Hair Dryer HP8100')">
+                <img class="product-card-img" data-product="Philips Hair Dryer HP8100" alt="Philips Hair Dryer">
+                <div class="product-card-icon">💨</div>
+                <div class="product-card-name">Philips Hair Dryer HP8100</div>
+                <div class="product-card-platforms">
+                    <span class="platform-pill amazon">Amazon</span>
+                    <span class="platform-pill flipkart">Flipkart</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <script>
+    function searchProduct(name) {
+        document.getElementById('productInput').value = name;
+        document.getElementById('searchForm').submit();
+    }
+
+    function loadThumbs() {
+        var imgs = document.querySelectorAll('.product-card-img:not([data-loaded])');
+        if (!imgs.length) return;
+        imgs.forEach(function(img) {
+            fetch('/api/product-image?q=' + encodeURIComponent(img.dataset.product))
+                .then(function(r) { return r.json(); })
+                .then(function(d) {
+                    if (d.url) {
+                        img.src = d.url;
+                        img.style.display = 'block';
+                        img.dataset.loaded = '1';
+                        img.nextElementSibling.style.display = 'none'; // hide emoji
+                    }
+                })
+                .catch(function() {});
+        });
+        // retry every 4s until all images are loaded
+        if (document.querySelectorAll('.product-card-img:not([data-loaded])').length) {
+            setTimeout(loadThumbs, 4000);
+        }
+    }
+    loadThumbs();
+    </script>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    {% if result %}
+
+    <!-- Product Header -->
+    <div class="product-header">
+        {% if product_image %}
+        <img src="{{ product_image }}" alt="Product Image"
+             onerror="this.style.display='none'">
+        {% endif %}
+        <div class="product-meta">
+            <h2>{{ product_name }}</h2>
+            <div style="margin-top:8px; display:flex; align-items:center; flex-wrap:wrap; gap:6px;">
+                <div class="rating-badge">&#11088; {{ rating }} / 5</div>
+                {% if platform and platform != 'unknown' %}
+                <span class="source-badge {{ platform }}">
+                    {% if platform == 'amazon' %}🛒 Analysed from Amazon
+                    {% elif platform == 'flipkart' %}🛍 Analysed from Flipkart
+                    {% elif platform == 'myntra' %}👗 Analysed from Myntra
+                    {% elif platform == 'snapdeal' %}📦 Analysed from Snapdeal
+                    {% endif %}
+                </span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Sentiment Summary -->
+    <div class="sentiment-grid">
+        <div class="sentiment-box positive">
+            Positive <span>{{ result.positive }}</span>
+        </div>
+        <div class="sentiment-box negative">
+            Negative <span>{{ result.negative }}</span>
+        </div>
+        <div class="sentiment-box neutral">
+            Neutral <span>{{ result.neutral }}</span>
+        </div>
+    </div>
+
+    <!-- Graphs -->
+    <div class="graphs">
+        <img src="{{ url_for('static', filename='sentiment.png') }}?t={{ range(1,99999) | random }}" alt="Sentiment Chart">
+        <img src="{{ url_for('static', filename='keywords.png') }}?t={{ range(1,99999) | random }}" alt="Keyword Chart">
+    </div>
+
+    <!-- Sentiment Keywords -->
+    {% set skw = result.sentiment_keywords %}
+    {% if skw %}
+    <div class="kw-section">
+        <div class="kw-section-title">Keywords Driving Each Sentiment</div>
+        <div class="kw-grid">
+            <div class="kw-group positive">
+                <div class="kw-group-label"><span class="kw-dot"></span>Positive</div>
+                <div class="kw-tags">
+                    {% if skw.positive %}
+                        {% for kw in skw.positive %}
+                        <span class="kw-tag">{{ kw }}</span>
+                        {% endfor %}
+                    {% else %}
+                        <span class="kw-empty">No keywords found</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="kw-group negative">
+                <div class="kw-group-label"><span class="kw-dot"></span>Negative</div>
+                <div class="kw-tags">
+                    {% if skw.negative %}
+                        {% for kw in skw.negative %}
+                        <span class="kw-tag">{{ kw }}</span>
+                        {% endfor %}
+                    {% else %}
+                        <span class="kw-empty">No keywords found</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="kw-group neutral">
+                <div class="kw-group-label"><span class="kw-dot"></span>Neutral</div>
+                <div class="kw-tags">
+                    {% if skw.neutral %}
+                        {% for kw in skw.neutral %}
+                        <span class="kw-tag">{{ kw }}</span>
+                        {% endfor %}
+                    {% else %}
+                        <span class="kw-empty">No keywords found</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Sales Impact -->
+    {% if impact %}
+    <div class="sales-section">
+        <h3>Sales Impact Analysis</h3>
+        <div class="sales-metrics">
+            <div class="sales-card before">
+                Before Bad Reviews
+                <span>{{ impact.sales_before }}</span>
+                units
+            </div>
+            <div class="sales-card after">
+                After Bad Reviews
+                <span>{{ impact.sales_after }}</span>
+                units
+            </div>
+            <div class="sales-card drop">
+                Sales Drop
+                <span>{{ impact.drop_pct }}%</span>
+                decline
+            </div>
+            <div class="sales-card verdict {% if impact.severity == 'High' %}high{% elif impact.severity == 'Critical' %}critical{% endif %}">
+                Impact Severity
+                <span>{{ impact.severity }}</span>
+            </div>
+        </div>
+        <div class="sales-chart">
+            <img src="{{ url_for('static', filename='sales_impact.png') }}?t={{ range(1,99999) | random }}" alt="Sales Impact Chart">
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Reviews -->
+    <div class="reviews-section">
+        <h3>Customer Reviews {% if total_reviews %}({{ [total_reviews, 10] | min }} shown){% endif %}</h3>
+        {% for r in reviews %}
+        <div class="review-card">
+            <div class="review-number">{{ loop.index }}</div>
+            <div class="review-content">
+                {% if r.get('title') %}
+                <div class="review-title-line">{{ r.title }}</div>
+                {% endif %}
+                <div class="review-name">by {{ r.name }}</div>
+                <div class="review-text">{{ r.text }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% endif %}
+</div>
+
+</body>
+</html>
