@@ -20,6 +20,10 @@
 </div>
 
 ---
+# 📄 Project Report
+
+[![Click to View PDF](https://img.shields.io/badge/View_PDF-Click_Here-blue?style=for-the-badge&logo=adobeacrobatreader)](./FeedbackIQ_FINAL.pdf)
+
 
 # 📑 Table of Contents
 
@@ -1057,11 +1061,7 @@ We sincerely express our gratitude to:
 for their continuous guidance, encouragement, and support throughout the development of this project.
 
 ---
-# 📄 Project Report
 
-[![Click to View PDF](https://img.shields.io/badge/View_PDF-Click_Here-blue?style=for-the-badge&logo=adobeacrobatreader)](./FeedbackIQ_FINAL.pdf)
-
-> 💡 **Tip:** Agar upar diya gaya button kaam na kare, toh aap direct [Yahan Click Karke PDF Dekh Sakte Hain](./FeedbackIQ_FINAL.pdf).
 # 📬 Contact
 
 ### Amar Das
