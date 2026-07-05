@@ -8,14 +8,14 @@
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
 ![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge&logo=flask)
-![Selenium](https://img.shields.io/badge/Selenium-Web%20Scraping-green?style=for-the-badge&logo=selenium)
-![NLTK](https://img.shields.io/badge/NLTK-Natural%20Language-yellow?style=for-the-badge)
+![Selenium](https://img.shields.io/badge/Selenium-Web%20Automation-green?style=for-the-badge&logo=selenium)
+![NLTK](https://img.shields.io/badge/NLP-VADER-yellow?style=for-the-badge)
 ![HTML5](https://img.shields.io/badge/HTML5-orange?style=for-the-badge&logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS3-blue?style=for-the-badge&logo=css3)
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript)
 ![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)
 
-An AI-powered web application that extracts product reviews from popular e-commerce platforms, performs sentiment analysis, predicts the business impact of customer feedback, and generates interactive analytical reports.
+### Transforming Customer Reviews into Actionable Business Intelligence
 
 </div>
 
@@ -31,8 +31,7 @@ An AI-powered web application that extracts product reviews from popular e-comme
 - System Architecture
 - Technology Stack
 - Software Requirements
-- Tools Used
-- Screenshots
+- Project Screenshots
 - Installation
 - Future Scope
 - Contributors
@@ -41,51 +40,49 @@ An AI-powered web application that extracts product reviews from popular e-comme
 
 # 📖 Project Overview
 
-**FeedBackIQ** is an intelligent review analysis platform developed using **Flask**, **Python**, **Selenium**, and **Natural Language Processing (NLP)**.
+FeedBackIQ is an AI-powered web application developed to automate product review analysis from popular e-commerce platforms.
 
-The application automatically extracts customer reviews from e-commerce websites, classifies them into **Positive**, **Negative**, and **Neutral** sentiments using **VADER Sentiment Analysis**, predicts the possible impact on product sales, and presents the results through an interactive dashboard.
+Instead of manually reading hundreds of customer reviews, businesses can simply paste a product URL. The application automatically extracts customer reviews using Selenium, performs Natural Language Processing (NLP), classifies customer sentiment using the VADER sentiment analyzer, predicts the business impact of customer feedback, and presents the results through an interactive dashboard.
 
-The system enables businesses and sellers to understand customer feedback without manually reading hundreds or thousands of reviews.
+FeedBackIQ helps businesses understand customer satisfaction, identify recurring issues, and make better business decisions using data-driven insights.
 
 ---
 
 # ❗ Problem Statement
 
-Modern e-commerce websites receive a massive number of customer reviews every day.
+E-commerce platforms receive thousands of customer reviews every day.
 
-Reading every review manually is almost impossible.
+Reading and understanding these reviews manually is difficult, time-consuming, and inefficient.
 
-Businesses face several challenges:
+Businesses often struggle to:
 
-- Understanding customer satisfaction
-- Identifying common complaints
-- Tracking sentiment trends
-- Measuring product performance
-- Predicting the business impact of negative reviews
+- Understand customer satisfaction
+- Identify common product issues
+- Analyze customer sentiment
+- Predict business impact
+- Improve products based on customer feedback
 
-FeedBackIQ automates the complete review analysis process using Artificial Intelligence and NLP.
+FeedBackIQ solves these challenges using Artificial Intelligence and Natural Language Processing.
 
 ---
 
 # 🎯 Objectives
 
-- Automate product review collection
-- Perform sentiment analysis
+- Automate customer review collection
+- Perform AI-based sentiment analysis
 - Predict sales impact
 - Generate graphical reports
-- Help businesses improve products
+- Improve business decision making
 - Reduce manual review analysis
-- Provide actionable customer insights
+- Provide customer insights
 
 ---
 
 # ⭐ Key Features
 
-## 🌐 Multi-Platform Product Analysis
+## 🌐 Multi Platform Support
 
-Supports product review extraction from multiple e-commerce websites.
-
-Examples:
+Supports multiple e-commerce websites including
 
 - Amazon
 - Flipkart
@@ -94,21 +91,21 @@ Examples:
 
 ---
 
-## 🤖 AI-Based Sentiment Analysis
+## 🤖 AI Powered Sentiment Analysis
 
-Automatically classifies customer reviews into:
+Automatically classifies customer reviews into
 
 - Positive
 - Neutral
 - Negative
 
-using NLP techniques.
+using Natural Language Processing.
 
 ---
 
 ## 📈 Sales Impact Prediction
 
-Predicts how customer sentiment may affect future product sales.
+Predicts the possible business impact of customer reviews and estimates the expected sales change based on customer sentiment.
 
 ---
 
@@ -116,49 +113,55 @@ Predicts how customer sentiment may affect future product sales.
 
 Displays
 
-- Product Details
-- Ratings
-- Customer Reviews
-- Sentiment Distribution
-- Sales Prediction
-- Summary Report
+- Product Information
+- Product Rating
+- Positive Reviews
+- Negative Reviews
+- Neutral Reviews
+- Sentiment Charts
+- Keyword Analysis
+- Sales Impact
 
 ---
 
-## 🔍 Web Scraping
+## 🔍 Automatic Review Extraction
 
 Automatically extracts
 
 - Product Name
 - Product Image
-- Ratings
-- Reviews
+- Product Rating
+- Customer Reviews
 
 using Selenium WebDriver.
 
 ---
 
-## 📉 Graphical Visualization
+## 📉 Graphical Reports
 
 Generates
 
 - Pie Charts
-- Bar Charts
-- Sentiment Graphs
-- Review Statistics
-- Sales Impact Graphs
+- Keyword Analysis
+- Sales Impact Dashboard
+- Customer Review Statistics
 
 ---
 
-## ⚡ Fast Analysis
+## ⚡ Fast Processing
 
-The application automatically processes large numbers of reviews within seconds.
+Processes customer reviews automatically within a few seconds.
 
 ---
 
-## 🌍 User Friendly Interface
+## 💻 Responsive Interface
 
-Simple Flask web interface with responsive design.
+Modern responsive web interface built using
+
+- HTML
+- CSS
+- JavaScript
+- Flask
 
 ---
 
@@ -172,7 +175,7 @@ Paste Product URL
 
 ↓
 
-Flask Backend
+Flask Application
 
 ↓
 
@@ -180,11 +183,11 @@ Selenium Web Scraper
 
 ↓
 
-Extract Product Information
+Product Information Extraction
 
 ↓
 
-Extract Customer Reviews
+Customer Review Extraction
 
 ↓
 
@@ -192,7 +195,7 @@ Data Cleaning
 
 ↓
 
-NLP Processing
+Natural Language Processing
 
 ↓
 
@@ -215,36 +218,49 @@ Final Report
 # 🏗️ System Architecture
 
 ```
-               User
-                 │
-                 ▼
-        Product URL Input
-                 │
-                 ▼
-         Flask Web Application
-                 │
-        ┌────────┴────────┐
-        │                 │
-        ▼                 ▼
- Selenium Scraper     Product Details
-        │
-        ▼
- Customer Reviews
-        │
-        ▼
- Data Cleaning
-        │
-        ▼
- NLP Processing
-        │
-        ▼
- VADER Sentiment Analysis
-        │
-        ▼
- Sales Prediction Engine
-        │
-        ▼
- Dashboard + Charts + Report
+
+User
+
+↓
+
+Product URL
+
+↓
+
+Flask Backend
+
+↓
+
+Selenium Web Scraper
+
+↓
+
+Customer Reviews
+
+↓
+
+Text Cleaning
+
+↓
+
+NLP Processing
+
+↓
+
+Sentiment Analysis
+
+↓
+
+Sales Prediction
+
+↓
+
+Interactive Dashboard
+
+↓
+
+Business Insights
+
 ```
 
 ---
@@ -257,28 +273,21 @@ Final Report
 - CSS3
 - JavaScript
 
----
-
 ## Backend
 
 - Python
 - Flask
 
----
+## Artificial Intelligence
+
+- NLP
+- NLTK
+- VADER Sentiment Analyzer
 
 ## Web Scraping
 
-- Selenium WebDriver
-
----
-
-## Artificial Intelligence
-
-- Natural Language Processing
-- NLTK
-- VADER Sentiment Analysis
-
----
+- Selenium
+- ChromeDriver
 
 ## Data Visualization
 
@@ -287,36 +296,125 @@ Final Report
 
 ---
 
-## Development Tools
-
-- VS Code
-- Git
-- GitHub
-- Chrome Driver
-
----
-
 # 🖥️ Software Requirements
 
 - Python 3.x
-- Google Chrome
-- ChromeDriver
-- VS Code
 - Flask
 - Selenium
 - NLTK
-- NumPy
 - Matplotlib
+- NumPy
+- Google Chrome
+- ChromeDriver
+- VS Code
 
 ---
-# 🛠️ Tools Used
+# 📸 Project Screenshots
 
-- Git
-- GitHub
-- VS Code
-- Chrome Driver
-- Postman
-- Browser Developer Tools
+---
+
+## 🏠 1. Front-End Interface
+
+<p align="center">
+<img src="images/Screenshot%202026-07-05%20212615.png" width="900">
+</p>
+
+### Description
+
+The Front-End Interface is the main entry point of the FeedBackIQ application.
+
+Users can paste a product URL from supported e-commerce platforms such as Amazon, Flipkart, Myntra, and Snapdeal to begin the analysis.
+
+The homepage also provides featured products that can be analyzed instantly with a single click. The interface is designed to be clean, responsive, and easy to use.
+
+### Features
+
+- Product URL Input
+- Multi-Platform Support
+- Featured Products
+- One-Click Analysis
+- Responsive UI
+- User-Friendly Design
+
+---
+
+## 📊 2. Product Analysis Dashboard
+
+<p align="center">
+<img src="images/Screenshot%202026-07-05%20212634.png" width="900">
+</p>
+
+### Description
+
+Once the product URL is submitted, FeedBackIQ analyzes the collected customer reviews and generates an interactive dashboard.
+
+The dashboard displays important product information together with review statistics and graphical visualizations.
+
+It provides an overall understanding of customer satisfaction in a single screen.
+
+### Dashboard Information
+
+- Product Name
+- Product Image
+- Product Rating
+- Total Positive Reviews
+- Total Negative Reviews
+- Total Neutral Reviews
+- Sentiment Distribution
+- Top Keywords
+
+---
+
+## 📈 3. Sentiment Analysis & Sales Impact Dashboard
+
+<p align="center">
+<img src="images/Screenshot%202026-07-05%20212640.png" width="900">
+</p>
+
+### Description
+
+FeedBackIQ uses Natural Language Processing (NLP) together with the VADER Sentiment Analyzer to evaluate customer opinions.
+
+The dashboard identifies the most frequently occurring keywords, classifies customer sentiment, estimates sales impact, and predicts overall business risk.
+
+This enables businesses to quickly identify customer concerns and improve their products.
+
+### Analysis Includes
+
+- Sentiment Pie Chart
+- Keyword Frequency Graph
+- Positive Keywords
+- Negative Keywords
+- Neutral Keywords
+- Sales Before Analysis
+- Sales After Analysis
+- Estimated Sales Drop
+- Impact Severity
+
+---
+
+## 📝 4. Customer Review Page
+
+<p align="center">
+<img src="images/Screenshot%202026-07-05%20212654.png" width="900">
+</p>
+
+### Description
+
+The Review Page displays all customer reviews collected from the selected e-commerce platform.
+
+Each review is presented in a structured format, allowing businesses to examine customer experiences individually.
+
+This improves transparency and helps identify common complaints, product strengths, and customer expectations.
+
+### Review Features
+
+- Complete Customer Reviews
+- Reviewer Names
+- Organized Review Cards
+- Easy Navigation
+- Scrollable Layout
+- Better Customer Understanding
 
 ---
 
@@ -324,37 +422,21 @@ Final Report
 
 ## 1️⃣ Product Input Module
 
-This module allows users to submit a product for analysis.
+Responsible for receiving product URLs from users.
 
-### Features
+Functions:
 
-- Paste product URL
-- Supports multiple e-commerce platforms
-- Validates user input
-- Sends URL to backend
-
-Input
-
-```
-Amazon Product URL
-Flipkart Product URL
-Myntra Product URL
-Snapdeal Product URL
-```
-
-Output
-
-```
-Validated Product URL
-```
+- Accept Product URL
+- Validate Input
+- Send Request to Backend
 
 ---
 
 ## 2️⃣ Web Scraping Module
 
-This module is responsible for collecting product information.
+Automatically extracts product information using Selenium.
 
-### Extracted Data
+Extracted Data
 
 - Product Name
 - Product Image
@@ -362,306 +444,112 @@ This module is responsible for collecting product information.
 - Customer Reviews
 - Review Count
 
-### Technologies Used
-
-- Selenium
-- Chrome Driver
-- Python
-
 ---
 
 ## 3️⃣ Data Cleaning Module
 
-Before sentiment analysis, reviews are processed.
+Processes raw customer reviews before sentiment analysis.
 
-Operations include
+Operations
 
-- Removing Symbols
-- Removing HTML Tags
 - Lowercase Conversion
-- Removing Extra Spaces
-- Removing Stop Words
+- Remove HTML Tags
+- Remove Special Characters
+- Remove Extra Spaces
+- Stop Word Removal
 
 ---
 
-## 4️⃣ Sentiment Analysis Module
+## 4️⃣ NLP & Sentiment Analysis Module
 
-Natural Language Processing is performed using VADER.
+Processes customer reviews using Natural Language Processing.
 
-Each review is classified as
+Classification
 
-- 😊 Positive
-- 😐 Neutral
-- 😞 Negative
+- Positive
+- Neutral
+- Negative
 
-Example
+Algorithm
 
-Positive Review
-
-```
-Excellent product.
-Worth every penny.
-```
-
-Negative Review
-
-```
-Poor quality.
-Very disappointed.
-```
-
-Neutral Review
-
-```
-Average product.
-Delivery was on time.
-```
+- VADER Sentiment Analyzer
 
 ---
 
-## 5️⃣ Sales Impact Prediction
+## 5️⃣ Sales Prediction Module
 
-FeedBackIQ estimates how customer sentiment may influence product sales.
+Calculates business impact based on customer sentiment.
 
-The system analyses
+Outputs
 
-- Positive Percentage
-- Neutral Percentage
-- Negative Percentage
-
-and predicts
-
-- Low Risk
-- Medium Risk
-- High Risk
+- Sales Before Reviews
+- Sales After Reviews
+- Sales Drop
+- Impact Severity
 
 ---
 
 ## 6️⃣ Visualization Module
 
-Generates graphical reports.
+Generates interactive graphs.
 
-Charts include
+Charts
 
 - Pie Chart
-- Bar Chart
-- Review Distribution
-- Sentiment Graph
-- Sales Prediction Graph
+- Keyword Graph
+- Sentiment Distribution
+- Sales Analysis
 
 ---
 
-## 7️⃣ Final Dashboard
+## 7️⃣ Report Generation Module
 
-Displays
+Displays the complete analytical report.
 
-- Product Image
-- Product Name
-- Product Rating
-- Positive Reviews
-- Negative Reviews
-- Neutral Reviews
-- Sales Prediction
-- Charts
-- Customer Feedback
+Report Includes
 
----
-
-# ⚙️ Working Principle
-
-Step 1
-
-User opens FeedBackIQ.
-
-↓
-
-Step 2
-
-Paste Product URL.
-
-↓
-
-Step 3
-
-Flask receives request.
-
-↓
-
-Step 4
-
-Selenium opens website.
-
-↓
-
-Step 5
-
-Product information is extracted.
-
-↓
-
-Step 6
-
-Customer reviews are collected.
-
-↓
-
-Step 7
-
-Reviews are cleaned.
-
-↓
-
-Step 8
-
-NLTK processes text.
-
-↓
-
-Step 9
-
-VADER performs sentiment analysis.
-
-↓
-
-Step 10
-
-Sales prediction is generated.
-
-↓
-
-Step 11
-
-Dashboard displays complete report.
-
----
-
-# 📸 Project Screenshots
-
-## Home Page
-
-```html
-images/home.png
-```
-
----
-
-## Product Input
-
-```html
-images/input.png
-```
-
----
-
-## Product Details
-
-```html
-images/product.png
-```
-
----
-
-## Sentiment Analysis
-
-```html
-images/sentiment.png
-```
-
----
-
-## Dashboard
-
-```html
-images/dashboard.png
-```
-
----
-
-## Charts
-
-```html
-images/charts.png
-```
-
----
-
-## Sales Prediction
-
-```html
-images/prediction.png
-```
-
----
-
-## Final Report
-
-```html
-images/report.png
-```
-
----
-
-# 📊 Key Advantages
-
-- Fully Automated Review Analysis
-
-- AI Powered Sentiment Detection
-
-- Sales Impact Prediction
-
-- Interactive Dashboard
-
-- Faster Decision Making
-
-- Easy To Use
-
-- Multi Platform Support
-
+- Product Details
+- Review Statistics
+- Sentiment Results
 - Business Insights
+- Graphical Analysis
 
-- Data Visualization
+---
 
-- Better Customer Understanding
+# ✅ Advantages
+
+- Automated Review Analysis
+- AI-Based Sentiment Detection
+- Business Decision Support
+- Graphical Reports
+- Interactive Dashboard
+- Easy to Use
+- Multi-Platform Support
+- Fast Processing
+- Better Customer Insights
 
 ---
 
 # ⚠️ Limitations
 
-- Depends on website structure
-
-- Selenium execution time
-
-- Internet required
-
-- Limited platform support
-
-- CAPTCHA may block scraping
-
-- Prediction is sentiment-based
+- Internet Connection Required
+- Depends on Website Structure
+- CAPTCHA May Affect Scraping
+- Selenium Execution Time
+- Limited Platform Compatibility
 
 ---
 
 # 🌍 Applications
 
-- E-Commerce Companies
-
+- E-Commerce Businesses
 - Product Sellers
-
 - Marketing Teams
-
-- Brand Monitoring
-
-- Customer Experience Analysis
-
-- Product Research
-
 - Business Intelligence
-
-- Market Analysis
-
-- Sales Analytics
-
-- Consumer Feedback Analysis
+- Customer Experience Analysis
+- Product Research
+- Market Research
+- Brand Monitoring
 
 ---
 # 🚀 Installation Guide
@@ -674,7 +562,7 @@ git clone https://github.com/Blackpanther63/FeedBackIQ.git
 
 ---
 
-## 2️⃣ Navigate to Project Directory
+## 2️⃣ Navigate to the Project Directory
 
 ```bash
 cd FeedBackIQ/UpdatedFeedI
@@ -700,7 +588,7 @@ source venv/bin/activate
 
 ---
 
-## 4️⃣ Install Dependencies
+## 4️⃣ Install Required Packages
 
 ```bash
 pip install -r requirements.txt
@@ -709,12 +597,12 @@ pip install -r requirements.txt
 If `requirements.txt` is unavailable:
 
 ```bash
-pip install flask selenium nltk matplotlib numpy beautifulsoup4 requests webdriver-manager
+pip install flask selenium nltk matplotlib numpy pandas requests beautifulsoup4 webdriver-manager
 ```
 
 ---
 
-## 5️⃣ Download NLTK Resources
+## 5️⃣ Download Required NLTK Packages
 
 ```python
 import nltk
@@ -726,7 +614,13 @@ nltk.download("vader_lexicon")
 
 ---
 
-## 6️⃣ Start Application
+## 6️⃣ Configure ChromeDriver
+
+Download the ChromeDriver version matching your installed Google Chrome browser and ensure it is available in your system PATH.
+
+---
+
+## 7️⃣ Run the Application
 
 ```bash
 python app.py
@@ -740,7 +634,7 @@ flask run
 
 ---
 
-## 7️⃣ Open Browser
+## 8️⃣ Open Browser
 
 ```
 http://127.0.0.1:5000
@@ -753,132 +647,366 @@ http://127.0.0.1:5000
 ```text
 FeedBackIQ
 │
-├── UpdatedFeedI/
+├── UpdatedFeedI
+│   │
+│   ├── static
+│   │   ├── css
+│   │   ├── js
+│   │   ├── images
+│   │   └── fonts
+│   │
+│   ├── templates
+│   │   ├── index.html
+│   │   ├── dashboard.html
+│   │   ├── reviews.html
+│   │   ├── result.html
+│   │   └── about.html
+│   │
+│   ├── app.py
+│   ├── analyser.py
+│   ├── requirements.txt
+│   ├── README.md
+│   ├── report
+│   ├── images
+│   ├── uploads
+│   └── sessions
 │
-├── static/
-│   ├── css/
-│   ├── js/
-│   ├── images/
-│   └── fonts/
-│
-├── templates/
-│   ├── index.html
-│   ├── dashboard.html
-│   ├── result.html
-│   ├── review.html
-│   └── about.html
-│
-├── app.py
-├── analyser.py
-├── requirements.txt
-├── README.md
-├── report/
-├── images/
-├── uploads/
-└── LICENSE
+├── LICENSE
+└── .gitignore
+```
+
+---
+
+# 🔄 Complete Project Flow
+
+```
+User Opens Website
+
+        │
+
+        ▼
+
+Paste Product URL
+
+        │
+
+        ▼
+
+URL Validation
+
+        │
+
+        ▼
+
+Selenium Starts Browser
+
+        │
+
+        ▼
+
+Product Information Extraction
+
+        │
+
+        ▼
+
+Customer Review Extraction
+
+        │
+
+        ▼
+
+Data Cleaning
+
+        │
+
+        ▼
+
+Natural Language Processing
+
+        │
+
+        ▼
+
+VADER Sentiment Analysis
+
+        │
+
+        ▼
+
+Sales Impact Prediction
+
+        │
+
+        ▼
+
+Keyword Extraction
+
+        │
+
+        ▼
+
+Graph Generation
+
+        │
+
+        ▼
+
+Interactive Dashboard
+
+        │
+
+        ▼
+
+Customer Review Page
+
+        │
+
+        ▼
+
+Final Business Insights
 ```
 
 ---
 
 # 📄 Project Report
 
-<p align="center">
+The project includes a detailed documentation report covering
 
-<a href="report/FeedbackIQ_FINAL.pdf">
+- Introduction
+- Literature Survey
+- Problem Statement
+- Objectives
+- Methodology
+- Technology Stack
+- Modules
+- Screenshots
+- Results
+- Future Scope
+- Conclusion
 
-<img src="report/report_preview.png" width="700">
-
-</a>
-
-</p>
-
-<p align="center">
-
-<b>📥 Click the preview to open the complete project report.</b>
-
-</p>
+```markdown
+📄 report/FeedbackIQ_FINAL.pdf
+```
 
 ---
 
 # 🎥 Project Demonstration
 
-<p align="center">
+The project demonstration video explains
 
-<a href="video/demo.mp4">
+- Application Workflow
+- URL Submission
+- Review Scraping
+- Sentiment Analysis
+- Dashboard
+- Review Page
+- Sales Prediction
 
-<img src="images/video_thumbnail.png" width="750">
+```markdown
+🎥 video/demo.mp4
+```
 
-</a>
+---
 
-</p>
+# 🔒 Security Features
 
-<p align="center">
+- Input Validation
+- Safe URL Handling
+- Session Management
+- Error Handling
+- Secure Backend Processing
 
-<b>▶ Click the thumbnail to watch the project demonstration.</b>
+---
 
-</p>
+# 📈 Performance Highlights
+
+- Fast Review Collection
+
+- Automatic Sentiment Classification
+
+- Real-Time Dashboard Generation
+
+- Graphical Business Insights
+
+- Keyword Extraction
+
+- Automated Report Generation
+
+---
+
+# 🌟 Why FeedBackIQ?
+
+FeedBackIQ reduces the effort required to manually analyze thousands of customer reviews.
+
+The system automatically transforms raw customer feedback into meaningful business insights that help sellers improve products and customer satisfaction.
+
+Businesses can quickly identify:
+
+- Customer Pain Points
+- Frequently Mentioned Keywords
+- Overall Product Reputation
+- Customer Satisfaction Level
+- Expected Sales Impact
+- Product Improvement Areas
+
+using Artificial Intelligence and Natural Language Processing.
 
 ---
 
 # 🔮 Future Scope
 
-- AI-based Deep Learning Sentiment Analysis
-- Real-Time Product Monitoring
+- Deep Learning Based Sentiment Analysis
+
+- Machine Learning Sales Prediction
+
+- AI Recommendation Engine
+
 - Multi-language Review Analysis
-- Product Recommendation Engine
-- Competitor Comparison Dashboard
+
+- PDF Report Download
+
+- Excel Export
+
+- User Login System
+
+- Dashboard History
+
+- Competitor Product Comparison
+
 - Cloud Deployment
-- PDF & Excel Report Export
-- User Authentication
-- Saved Analysis History
-- Email Notifications
-- Admin Dashboard
-- Advanced Data Analytics
-- Machine Learning Sales Forecasting
-- Voice Review Analysis
+
 - Mobile Application
+
+- Voice Review Analysis
+
+- Email Notifications
+
+- Real-Time Analytics
+
+- Advanced Business Intelligence Dashboard
+
+---
+# 📚 Learning Outcomes
+
+During the development of FeedBackIQ, our team gained practical experience in several modern software development technologies.
+
+### Technical Skills
+
+- Python Programming
+- Flask Web Development
+- Selenium Web Scraping
+- HTML5
+- CSS3
+- JavaScript
+- Natural Language Processing (NLP)
+- VADER Sentiment Analysis
+- Data Visualization
+- Matplotlib
+- NumPy
+- Git & GitHub
+- Debugging
+- REST-based Application Development
 
 ---
 
 # 🎯 Project Outcomes
 
-✔ Automated customer review analysis
+The project successfully demonstrates the integration of Web Scraping, Artificial Intelligence, and Web Development into a single intelligent application.
 
-✔ AI-powered sentiment classification
+### Achievements
 
-✔ Product rating visualization
+- Automated Customer Review Collection
 
-✔ Interactive analytical dashboard
+- AI Powered Sentiment Analysis
 
-✔ Business decision support
+- Interactive Business Dashboard
 
-✔ Reduced manual effort
+- Sales Impact Prediction
 
-✔ Fast review processing
+- Customer Review Visualization
 
-✔ Improved customer insight
+- Keyword Extraction
 
-✔ Sales impact prediction
+- Business Intelligence Generation
 
-✔ Better product improvement strategy
+- Improved Decision Making
+
+- Responsive Web Interface
 
 ---
 
-# 📚 Learning Outcomes
+# 💼 Real World Applications
 
-During this project, we gained practical experience in:
+FeedBackIQ can be used by
 
-- Python Development
-- Flask Framework
-- Web Scraping using Selenium
-- Natural Language Processing
-- VADER Sentiment Analysis
-- Data Visualization
-- REST-based Web Application Development
-- Frontend Development
-- Backend Integration
-- Git & GitHub
-- Software Development Lifecycle
+- Amazon Sellers
+
+- Flipkart Sellers
+
+- Myntra Sellers
+
+- Snapdeal Sellers
+
+- E-Commerce Companies
+
+- Product Manufacturers
+
+- Marketing Teams
+
+- Brand Managers
+
+- Business Analysts
+
+- Customer Experience Teams
+
+- Product Managers
+
+- Market Researchers
+
+---
+
+# 🛣️ Roadmap
+
+## ✅ Version 1.0
+
+- Product URL Analysis
+- Selenium Web Scraping
+- Sentiment Analysis
+- Dashboard
+- Customer Review Analysis
+
+---
+
+## 🚀 Version 2.0
+
+- User Authentication
+
+- Saved Analysis History
+
+- PDF Report Generation
+
+- Excel Export
+
+- Faster Data Processing
+
+---
+
+## 🤖 Version 3.0
+
+- Deep Learning Models
+
+- BERT Sentiment Analysis
+
+- AI Product Recommendation
+
+- Competitor Analysis
+
+- Multi-language Reviews
+
+- Cloud Deployment
+
+- Mobile Application
 
 ---
 
@@ -886,34 +1014,80 @@ During this project, we gained practical experience in:
 
 | Name | Role |
 |------|------|
-| Amar Das | Backend Development, Flask, NLP |
-| Raj Kumar | AI/ML & Model Integration |
-| Sudhanshu Singh | Frontend Development |
-| Devdeep Singh | Testing & Documentation |
-| Rishi Rikhi | Research & Data Collection |
+| **Amar Das** | Backend Development, Flask Integration, NLP, Sentiment Analysis |
+| **Raj Kumar** | AI/ML Development & Research |
+| **Sudhanshu Singh** | Frontend Development |
+| **Devdeep Singh** | Testing & Documentation |
+| **Rishi Rikhi** | Research & Data Collection |
+
+---
+
+# 👨‍🏫 Project Guide
+
+**Faculty Guide**
+
+Department of Computer Science & Engineering
+
+ARKA Jain University
 
 ---
 
 # 📜 License
 
-This project is developed for educational and academic purposes.
+This project is developed for **academic and educational purposes only**.
 
-Copyright © 2026 FeedBackIQ Team
+Copyright © 2026 FeedBackIQ Team.
 
 ---
 
-# ⭐ Support
+# 🙏 Acknowledgement
 
-If you found this project useful,
+We sincerely express our gratitude to:
 
-⭐ Star this repository.
+- ARKA Jain University
+
+- Department of Computer Science & Engineering
+
+- Our Faculty Guide
+
+- Project Mentors
+
+- Team Members
+
+for their continuous guidance, encouragement, and support throughout the development of this project.
+
+---
+
+# 📬 Contact
+
+### Amar Das
+
+📧 Email: daarav14@gmail.com
+
+💼 LinkedIn: https://www.linkedin.com/in/amar-das-29a81726b/
+
+🐙 GitHub: https://github.com/Blackpanther63
 
 ---
 
 <div align="center">
 
-## Thank You ❤️
+# ⭐ Support the Project
 
-**FeedBackIQ — Transforming Customer Reviews into Business Intelligence**
+If you found this project useful,
+
+please consider giving this repository a **⭐ Star**.
+
+It motivates us to build more open-source AI projects.
+
+---
+
+# ❤️ Thank You
+
+### FeedBackIQ
+
+### *Transforming Customer Reviews into Business Intelligence*
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:4facfe,100:00f2fe&height=120&section=footer"/>
 
 </div>
